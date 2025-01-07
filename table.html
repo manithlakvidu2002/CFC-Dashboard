@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Layout</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .table-container {
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .table-header {
+      font-weight: bold;
+      color: #00aaff;
+      margin-bottom: 10px;
+    }
+
+    .table-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #333;
+    }
+
+    .location {
+      flex: 2;
+      font-size: 16px;
+    }
+
+    .signal-icon {
+      flex: 1;
+      text-align: center;
+    }
+
+    .signal-icon img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .status-indicator {
+      flex: 1;
+      text-align: center;
+    }
+
+    .status-indicator .indicator {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: limegreen;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="table-container">
+    <div class="table-header">Location</div>
+
+    <div class="table-row">
+      <div class="location">CHILLER ROOM - H</div>
+      <div class="signal-icon">
+        <img src="/path/to/signal-icon.png" alt="Signal Strength">
+      </div>
+      <div class="status-indicator">
+        <span class="indicator"></span>
+      </div>
+    </div>
+
+    <!-- Repeat the table-row div for more rows -->
+    <div class="table-row">
+      <div class="location">CHILLER ROOM - H</div>
+      <div class="signal-icon">
+        <img src="/path/to/signal-icon.png" alt="Signal Strength">
+      </div>
+      <div class="status-indicator">
+        <span class="indicator"></span>
+      </div>
+    </div>
+
+    <div class="table-row">
+      <div class="location">CHILLER ROOM - H</div>
+      <div class="signal-icon">
+        <img src="/path/to/signal-icon.png" alt="Signal Strength">
+      </div>
+      <div class="status-indicator">
+        <span class="indicator"></span>
+      </div>
+    </div>
+
+    <!-- Add more rows as needed -->
+  </div>
+
+</body>
+</html>
