@@ -60,7 +60,7 @@ p {
   /* background-color: #000000; */
   border: 5px solid #000000;
   /* margin-top: 20px;
-        margin-left: 50px; */
+  margin-left: 50px; */
   display: flex;
   flex-direction: column;
 }
@@ -281,7 +281,7 @@ p {
   margin-left: 46px;
   /* get to the left conner to under the two line using  */
   /* position: absolute;
-        right: 0px; */
+  right: 0px; */
 }
 
 .Volt {
@@ -293,7 +293,7 @@ p {
   margin-left: 46px;
   /* get to the left conner to under the two line using  */
   /* position: absolute;
-        right: 0px; */
+  right: 0px; */
 }
 
 .tableArea {
@@ -317,8 +317,8 @@ p {
   font-size: 20px;
 }
 /* .container {
-          margin-bottom: 20px;
-      } */
+    margin-bottom: 20px;
+} */
 .buttons {
   display: flex;
   justify-content: center;
