@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    /* ####################   Body   ######################## */
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      /* background-color: #151F2C; */
+    }
+
+    /* ####################   MainWindow   ######################## */
+    .mainWindow{
+      width: 1920px;
+      height: 1080px;
+      background-color: #151F2C;
+    }
+
+    /* ####################   Header   ######################## */
+    .header{
+      height: 80px;
+      width: 1365px;
+      display: flex;
+      flex-direction: row;
+      background-color: #000000;
+      margin-top: 20px;
+      margin-left: 284px;
+      justify-content: center;
+    }
+    h1{
+      z-index: 1;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      font-size: 30px;
+    }
+    p{
+      z-index: 1;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      margin-top: 15px;
+      /* text-align: center; */
+    }
+    .mainArea{
+      display: flex;
+      flex-direction: row;
+    }
+    .mainSliderArea{
+      width: 1250px;
+      height: 830px;
+      /* border: 5px solid #000000; */
+      margin-top: 20px;
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+    }
+    .slideArea{
+      width: 1250px;;
+      height: 700px;
+      /* background-color: #000000; */
+      border: 5px solid #000000;
+      /* margin-top: 20px;
+      margin-left: 50px; */
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+
+
+    .slideHeader{
+      width: 1200px;
+      height: 80px;
+      /* background-color: #000000; */
+      /* border: 5px solid #000000; */
+      margin-top: 10px;
+      margin-left: 20px;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+    }
+    .slideTitle{
+      width: 550px;
+      height: 80px;
+      /* background-color: #000000; */
+    }
+    #roomTitle{
+      font-size: 50px;
+    }
+    .signal{
+      width: 160px;
+      height: 80px;
+      /* background-color: #000000; */
+      position: absolute;
+      right: 150px;
+    }
+
+    .signal-bar {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: 15px;
+        gap: 5px;
+        height: 50px;
+    }
+    .signal-bar div {
+        width: 10px;
+        background-color: gray;
+        transition: background-color 0.3s ease, height 0.3s ease;
+    }
+    .signal-bar .level-1 { height: 20%; }
+    .signal-bar .level-2 { height: 40%; }
+    .signal-bar .level-3 { height: 60%; }
+    .signal-bar .level-4 { height: 80%; }
+    .signal-bar .level-5 { height: 100%; }
+
+    .active-signal { background-color: #1AFF05; }
+
+
+    .sensorBVolt{
+      width: 150px;
+      height: 80px;
+      background-color: #000000;
+      position: absolute;
+      right: 0;
+    }
+
+
+
+    .slideBody{
+      width: 1200px;
+      height: 230px;
+      /* background-color: #000000; */
+      /* border: 5px solid #000000; */
+      margin-top: 10px;
+      margin-left: 20px;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+    }
+    .meter{
+      width: 450px;
+      height: 230px;
+      background-color:  #000000;
+    }
+    #chartdiv {
+        width: 100%;
+        height: 200px;
+        margin-top: 20px;
+    }
+    .dpt{
+      width: 700px;
+      height: 225px;
+      /* border: 2px solid #000000; */
+      position: absolute;
+      right: 0px; 
+      display: flex;
+      flex-direction: column;
+    }
+    .dp{
+      width: 700px;
+      height: 100px;
+      /* border: 2px solid #000000; */
+      display: flex;
+      flex-direction: row;
+    }
+    .door{
+      width: 340px;
+      height: 100px;
+      background-color: black;
+    }
+    .doortitle{
+      font-size: 30px;
+      margin-top: 5px;
+      margin-bottom: 0px;
+      color: #FFC400;
+    }
+    .power{
+      width: 340px;
+      height: 100px;
+      background-color: black;
+      margin-left: 40px;
+    }
+
+    .time{
+      width: 700px;
+      height: 125px;
+      /* border: 2px solid #000000; */
+      display: flex;
+      flex-direction: column;
+    }
+    .dateTime{
+      width: 700px;
+      height: 120px;
+      background-color: #000000;
+      margin-top: 10px;
+    }
+
+    #dateDisplay{
+      color: #FFC400;
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+
+    #timeDisplay{
+      font-size: 60px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+
+    .slideChart{
+      width: 1200px;
+      height: 285px;
+      background-color: #000000;
+      /* border: 5px solid #000000; */
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    #slideChartdiv {
+      width: 100%;
+      height: 285px;
+      max-width: 100%;
+    }
+    
+    .voltArea{
+      width: 1250px;
+      height: 130px;
+      /* border: 5px solid #000000; */
+      display: flex;
+      flex-direction: row;
+      /* position relative add {get the the evlot in the right coner} */
+      position: relative;
+    }
+    .bVolt{
+      width: 350px;
+      height: 100px;
+      margin-top: 20px;
+      background-color: rgb(0, 0, 0);
+    }
+    .eVolt{
+      width: 350px;
+      height: 100px;
+      margin-top: 20px;
+      background-color: rgb(0, 0, 0);
+      margin-left: 20px;
+    /* get to the left conner to under the two line using  */
+      position: absolute;
+      right: 0px;
+    }
+
+    .tableArea{
+      width: 510px;
+      height: 825px;
+      background-color: rgb(0, 0, 0);
+      margin-top: 20px;
+      margin-left: 60px;
+    }
+    .footer{
+      display: flex;
+      width: 1823px;
+      height: 80px;
+      margin-top: 20px;
+      margin-left: 48px;
+      background-color: #000000;
+      /* border: 5px solid #000000; */
+    }
+
+    .logo{
+      font-size: 20px;
+    }
+    /* .container {
+        margin-bottom: 20px;
+    } */
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 8px;
+    }
+    #buttonN{
+      font-size: 20px;
+      color: rgb(255, 255, 255);
+    }
+    .button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 3px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 7px;
+       
+    }
+    .button.active {
+        background-color: #1AFF05;
+        color: black;
+    }
+  </style>
+
+   <!-- Resources in meter  -->
+   <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+   <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+   <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+   <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+</head>
+<body>
+  <div class="mainWindow">
+    <div class="header">
+      <!-- <h1>Real Time Temperature Monitoring System - CFS Health Care Pharmacy</h1>   -->
+      <p>Real Time Temperature Monitoring System - CFS Health Care Pharmacy</p>    
+    </div>
+
+    <div class="mainArea" >
+      <div class="mainSliderArea">
+        <div class="slideArea">
+          <div class="slideHeader">
+            <div class="slideTitle">
+             <p id="roomTitle">COOL ROOM - H</p>
+            </div>
+            <div class="signal">
+                <div class="signal-bar">
+                  <div class="level-1"></div>
+                  <div class="level-2"></div>
+                  <div class="level-3"></div>
+                  <div class="level-4"></div>
+                  <div class="level-5"></div>
+              </div>
+            </div>
+            <div class="sensorBVolt"></div>
+          </div>
+
+          <div class="slideBody">
+            <div class="meter">
+              <div id="chartdiv"></div>
+            </div>
+            <div class="dpt">
+              <div class="dp">
+                <div class="door">
+                    <h1 class="doortitle">Door</h1>
+                    <div class="buttons">
+                      <h1 id="buttonN">OPEN</h1> <div id="openButton" class="button"></div>
+                      <h1 id="buttonN">CLOSE</h1> <div id="closeButton" class="button active"></div>
+                    </div>
+                </div>
+                <div class="power">
+                  <h1 class="doortitle">Power</h1>
+                    <div class="buttons">
+                      <h1 id="buttonN">ON</h1> <div id="onButton" class="button"></div>
+                      <h1 id="buttonN">OFF</h1> <div id="offButton" class="button active"></div>
+                    </div>
+                </div>
+              </div>
+              <div class="time">
+                <!-- <div class="dateTime">
+                  <h1>Date</h1>
+                  <h1>Time</h1>
+                </div> -->
+                <div class="dateTime">
+                  <h1 id="dateDisplay"></h1>
+                  <h1 id="timeDisplay"></h1>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slideChart">
+            <div id="slideChartdiv"></div>
+          </div>
+        </div>
+        <div class="voltArea">
+          <div class="bVolt">
+            <h1 class="doortitle" style="margin-top: 7px">Battery Voltage (Master)</h1>
+            <h1 id="batteryVM" style="margin-top: 10px;">11.98V</h1>
+          </div>
+          <div class="eVolt">
+            <h1 class="doortitle" style="margin-top: 7px;">External Voltage (Master)</h1>
+            <h1 id="externalVM" style="margin-top: 10px;">11.98V</h1>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="tableArea"></div>
+    </div>
+
+    <div class="footer">
+      <img  src="logo_company.png" alt="Footer Image" style="height: 80%; width: auto; margin-top: 6px; margin-left: 13px;">
+      <p style="font-size: 30px; margin-left: 20px; margin-top: 20px;">E Gravity Solutions (Pvt) Ltd.</p>
+    </div>
+    
+
+  </div>
+
+  <script>
+    const openButton = document.getElementById('openButton');
+    const closeButton = document.getElementById('closeButton');
+    const timeElement = document.getElementById('time');
+    const dateDisplay = document.getElementById('dateDisplay');
+    const timeDisplay = document.getElementById('timeDisplay');
+
+    // Signal Levels
+    const signalLevels = document.querySelectorAll('.signal-bar div');
+
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+        const dateString = now.toLocaleDateString();
+        // timeElement.textContent = `Current Date & Time: ${dateString}, ${timeString}`;
+        dateDisplay.textContent = ` ${dateString}`;
+        timeDisplay.textContent = ` ${timeString}`;
+    }
+
+    openButton.addEventListener('click', () => {
+      openButton.classList.add('active');
+      closeButton.classList.remove('active');
+    });
+
+    closeButton.addEventListener('click', () => {
+      closeButton.classList.add('active');
+      openButton.classList.remove('active');
+    });
+
+
+
+    const onButton = document.getElementById('onButton');
+    const offButton = document.getElementById('offButton');
+
+    onButton.addEventListener('click', () => {
+      onButton.classList.add('active');
+      offButton.classList.remove('active');
+    });
+
+    offButton.addEventListener('click', () => {
+      offButton.classList.add('active');
+      onButton.classList.remove('active');
+    });
+
+    function updateSignal(level) {
+        signalLevels.forEach((bar, index) => {
+            if (index < level) {
+                bar.classList.add('active-signal');
+            } else {
+                bar.classList.remove('active-signal');
+            }
+        });
+    }
+
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+
+    // Initialize time on page load
+    updateTime();
+
+    // Initialize signal to a default level
+    updateSignal(4);
+
+
+    // Meter
+    am5.ready(function() {
+
+    var root = am5.Root.new("chartdiv");
+
+    root.setThemes([
+        am5themes_Animated.new(root)
+    ]);
+
+    var chart = root.container.children.push(
+        am5radar.RadarChart.new(root, {
+            panX: false,
+            panY: false,
+            startAngle: 180,
+            endAngle: 360
+        })
+    );
+
+    chart.getNumberFormatter().set("numberFormat", "#°C");
+
+    var axisRenderer = am5radar.AxisRendererCircular.new(root, {
+        innerRadius: -40
+    });
+
+    axisRenderer.grid.template.setAll({
+        stroke: root.interfaceColors.get("background"),
+        visible: true,
+        strokeOpacity: 0.8
+    });
+
+    var xAxis = chart.xAxes.push(
+        am5xy.ValueAxis.new(root, {
+            maxDeviation: 0,
+            min: -10,
+            max: 50,
+            strictMinMax: true,
+            renderer: axisRenderer
+        })
+    );
+
+    // Set the label color of the values around the meter to white
+    xAxis.get("renderer").labels.template.setAll({
+        fill: am5.color(0xFFFFFF)  // White color for labels
+    });
+
+    var axisDataItem = xAxis.makeDataItem({});
+
+    var clockHand = am5radar.ClockHand.new(root, {
+        pinRadius: 50,
+        radius: am5.percent(100),
+        innerRadius: 50,
+        bottomWidth: 0,
+        topWidth: 0
+    });
+
+    // Set clock hand and pin to white
+    clockHand.pin.setAll({
+        fillOpacity: 0,
+        strokeOpacity: 0.5,
+        stroke: am5.color(0xFFFFFF), // White color for the pin
+        strokeWidth: 1,
+        strokeDasharray: [2, 2]
+    });
+    clockHand.hand.setAll({
+        fillOpacity: 0,
+        strokeOpacity: 0.5,
+        stroke: am5.color(0xFFFFFF), // White color for the hand
+        strokeWidth: 0.5
+    });
+
+    var bullet = axisDataItem.set(
+        "bullet",
+        am5xy.AxisBullet.new(root, {
+            sprite: clockHand
+        })
+    );
+
+    xAxis.createAxisRange(axisDataItem);
+
+    var label = chart.radarContainer.children.push(
+        am5.Label.new(root, {
+            centerX: am5.percent(50),
+            textAlign: "center",
+            centerY: am5.percent(50),
+            fontSize: "1.5em",
+            fill: am5.color(0xFFFFFF)  // Set label text color to white
+        })
+    );
+
+    axisDataItem.set("value", 20);
+    bullet.get("sprite").on("rotation", function () {
+        var value = axisDataItem.get("value");
+        label.set("text", Math.round(value).toString() + "°C");
+    });
+
+    setInterval(function () {
+        var value = Math.round(Math.random() * 60 - 10);
+
+        axisDataItem.animate({
+            key: "value",
+            to: value,
+            duration: 500,
+            easing: am5.ease.out(am5.ease.cubic)
+        });
+    }, 2000);
+
+    chart.bulletsContainer.set("mask", undefined);
+
+    var colorSet = am5.ColorSet.new(root, {});
+
+    // Green Range (-10°C to 20°C)
+    var axisRange0 = xAxis.createAxisRange(
+        xAxis.makeDataItem({
+            above: true,
+            value: -10,
+            endValue: 20
+        })
+    );
+    axisRange0.get("axisFill").setAll({
+        visible: true,
+        fill: am5.color(0x00FF00)  // Green
+    });
+    axisRange0.get("label").setAll({
+        forceHidden: true
+    });
+
+    // Amber Range (20°C to 40°C)
+    var axisRange1 = xAxis.createAxisRange(
+        xAxis.makeDataItem({
+            above: true,
+            value: 20,
+            endValue: 40
+        })
+    );
+    axisRange1.get("axisFill").setAll({
+        visible: true,
+        fill: am5.color(0xFFC107)  // Amber
+    });
+    axisRange1.get("label").setAll({
+        forceHidden: true
+    });
+
+    // Red Range (40°C to 50°C)
+    var axisRange2 = xAxis.createAxisRange(
+        xAxis.makeDataItem({
+            above: true,
+            value: 40,
+            endValue: 50
+        })
+    );
+    axisRange2.get("axisFill").setAll({
+        visible: true,
+        fill: am5.color(0xFF0000)  // Red
+    });
+    axisRange2.get("label").setAll({
+        forceHidden: true
+    });
+
+    chart.appear(1000, 100);
+
+    }); // end am5.ready()
+
+
+
+
+
+    //slideChart
+    am5.ready(function() {
+        
+        // Create root element
+        var root = am5.Root.new("slideChartdiv");
+      
+        // Set themes
+        root.setThemes([am5themes_Animated.new(root)]);
+      
+        // Generate random data
+        var value = 20;  // Initial temperature value (°C)
+      
+        function generateChartData() {
+          var chartData = [];
+          var firstDate = new Date();
+          firstDate.setDate(firstDate.getDate() - 1000);
+          firstDate.setHours(0, 0, 0, 0);
+      
+          for (var i = 0; i < 50; i++) {
+            var newDate = new Date(firstDate);
+            newDate.setSeconds(newDate.getSeconds() + i);
+      
+            // Randomize temperature (between -10°C and 50°C)
+            value += (Math.random() < 0.5 ? 1 : -1) * Math.random() * 2;
+      
+            chartData.push({
+              date: newDate.getTime(),
+              value: value
+            });
+          }
+          return chartData;
+        }
+      
+        var data = generateChartData();
+      
+        // Create chart
+        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+          focusable: true,
+          panX: true,
+          panY: true,
+          wheelX: "panX",
+          wheelY: "zoomX",
+          pinchZoomX: true,
+          paddingLeft: 0
+        }));
+      
+        var easing = am5.ease.linear;
+      
+        // Create axes
+        var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
+          maxDeviation: 0.5,
+          groupData: false,
+          extraMax: 0.1,
+          extraMin: -0.1,
+          baseInterval: { timeUnit: "second", count: 1 },
+          renderer: am5xy.AxisRendererX.new(root, {
+            minorGridEnabled: true,
+            minGridDistance: 50
+          }),
+          tooltip: am5.Tooltip.new(root, {})
+        }));
+      
+        // Y-axis to represent temperature (-10°C to 50°C)
+        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+          min: -10,
+          max: 50,  // Temperature range
+          renderer: am5xy.AxisRendererY.new(root, {})
+        }));
+
+         // Set axis labels to white
+        xAxis.get("renderer").labels.template.set("fill", am5.color(0xffffff)); // Change x-axis labels to white
+        yAxis.get("renderer").labels.template.set("fill", am5.color(0xffffff));
+          
+        // Add series for temperature line
+        var series = chart.series.push(am5xy.LineSeries.new(root, {
+          name: "Temperature",
+          xAxis: xAxis,
+          yAxis: yAxis,
+          valueYField: "value",
+          valueXField: "date",
+          tooltip: am5.Tooltip.new(root, {
+            pointerOrientation: "horizontal",
+            labelText: "{valueY}°C"
+          })
+        }));
+      
+        // Set initial bullet at the last data point
+        data[data.length - 1].bullet = true;
+        series.data.setAll(data);
+      
+        // Animating bullet at the latest data point
+        series.bullets.push(function(root, series, dataItem) {
+          if (dataItem.dataContext.bullet) {
+            var container = am5.Container.new(root, {});
+            var circle0 = container.children.push(am5.Circle.new(root, {
+              radius: 5,
+              fill: am5.color(0xff0000)
+            }));
+            var circle1 = container.children.push(am5.Circle.new(root, {
+              radius: 5,
+              fill: am5.color(0xff0000)
+            }));
+      
+            circle1.animate({
+              key: "radius",
+              to: 20,
+              duration: 1000,
+              easing: am5.ease.out(am5.ease.cubic),
+              loops: Infinity
+            });
+            circle1.animate({
+              key: "opacity",
+              to: 0,
+              from: 1,
+              duration: 1000,
+              easing: am5.ease.out(am5.ease.cubic),
+              loops: Infinity
+            });
+      
+            return am5.Bullet.new(root, {
+              locationX: undefined,
+              sprite: container
+            })
+          }
+        });
+      
+        // Add cursor for interaction
+        var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+          xAxis: xAxis
+        }));
+        cursor.lineY.set("visible", false);
+      
+        // Update data every second to simulate real-time temperature updates
+        setInterval(function () {
+          addData();
+        }, 1000);
+      
+        function addData() {
+          var lastDataItem = series.dataItems[series.dataItems.length - 1];
+          var lastValue = lastDataItem.get("valueY");
+          var newValue = value + ((Math.random() < 0.5 ? 1 : -1) * Math.random() * 2);  // Simulate small temperature changes
+          var lastDate = new Date(lastDataItem.get("valueX"));
+          var time = am5.time.add(new Date(lastDate), "second", 1).getTime();
+          series.data.removeIndex(0);
+          series.data.push({
+            date: time,
+            value: newValue
+          });
+      
+          var newDataItem = series.dataItems[series.dataItems.length - 1];
+          newDataItem.animate({
+            key: "valueYWorking",
+            to: newValue,
+            from: lastValue,
+            duration: 600,
+            easing: easing
+          });
+      
+          // Reuse the bullet for the new data point
+          newDataItem.bullets = [];
+          newDataItem.bullets[0] = lastDataItem.bullets[0];
+          newDataItem.bullets[0].get("sprite").dataItem = newDataItem;
+      
+          lastDataItem.dataContext.bullet = false;
+          lastDataItem.bullets = [];
+      
+          var animation = newDataItem.animate({
+            key: "locationX",
+            to: 0.5,
+            from: -0.5,
+            duration: 600
+          });
+          if (animation) {
+            var tooltip = xAxis.get("tooltip");
+            if (tooltip && !tooltip.isHidden()) {
+              animation.events.on("stopped", function () {
+                xAxis.updateTooltip();
+              })
+            }
+          }
+        }
+      
+        // Add color bands to indicate temperature zones
+        var range0 = yAxis.makeDataItem({value: -10, endValue: 20});
+        range0.get("axisFill").setAll({fill: am5.color(0x00FF00), fillOpacity: 0.3}); // Green for normal temperature
+        yAxis.createAxisRange(range0);
+      
+        var range1 = yAxis.makeDataItem({value: 20, endValue: 40});
+        range1.get("axisFill").setAll({fill: am5.color(0xFFC107), fillOpacity: 0.3}); // Amber for medium temperature
+        yAxis.createAxisRange(range1);
+      
+        var range2 = yAxis.makeDataItem({value: 40, endValue: 50});
+        range2.get("axisFill").setAll({fill: am5.color(0xFF0000), fillOpacity: 0.3}); // Red for high temperature
+        yAxis.createAxisRange(range2);
+      
+        // Make the chart animate on load
+        chart.appear(1000, 100);
+      
+      }); // end am5.ready()
+
+
+  </script>
+</body>
+</html>
