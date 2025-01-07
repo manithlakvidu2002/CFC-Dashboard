@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battery Icon with Voltage</title>
+  <style>
+    body {
+      background-color: #282c34;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .battery-container {
+      position: relative;
+      width: 80px; /* Adjust based on your image size */
+      height: 40px; /* Adjust based on your image size */
+    }
+
+    .battery-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .battery-value {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      white-space: nowrap; /* Keep the value on one line */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="battery-container">
+    <!-- Replace with your battery image path -->
+    <img src="battery.png" alt="Battery Icon">
+    <span class="battery-value">11.98 V</span>
+  </div>
+
+</body>
+</html>
